@@ -17,9 +17,11 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-    origin:'https://job-recommendation-pink.vercel.app',
-    credentials:true
-}
+  origin: "https://job-recommendation-pink.vercel.app",
+  credentials: true,
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type","Authorization"]
+};
 
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
